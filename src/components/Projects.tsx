@@ -7,16 +7,16 @@ import { motion } from 'motion/react';
 
 const Projects: React.FC = () => {
   return (
-    <section id="work" className="w-full min-h-[120vh] h-auto lg:h-[120vh] bg-black text-white px-6 sm:px-12 md:px-16 lg:px-20 py-16 flex flex-col justify-between select-none">
+    <section id="work" className="relative z-20 w-full min-h-[120vh] h-auto lg:h-[120vh] bg-[#03070d] text-white px-6 sm:px-12 md:px-16 lg:px-20 py-16 flex flex-col justify-between select-none">
       <div className="max-w-[1920px] mx-auto w-full h-full flex flex-col lg:flex-row gap-12 lg:gap-16 justify-between items-stretch">
         
-        {/* Left Column Text */}
+        {/* Left Column Text (Sticky on Desktop) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:w-[32%] xl:w-[30%] flex flex-col justify-between py-2"
+          className="lg:w-[32%] xl:w-[30%] lg:sticky lg:top-28 h-fit flex flex-col justify-between py-2"
         >
           {/* Top Label */}
           <div>

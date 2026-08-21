@@ -5,7 +5,7 @@ const FtrTop: React.FC = () => {
   const lines = ["LET'S MAKE", "SOMETHING", "ICONIC."];
 
   return (
-    <section className="min-h-[80vh] w-full flex items-center justify-center bg-black text-white select-none px-6 py-24 border-t border-white/10">
+    <section className="relative z-20 min-h-[80vh] w-full flex items-center justify-center bg-[#03070d] text-white select-none px-6 py-24 border-t border-white/10">
       <div className="flex flex-col items-center justify-center space-y-4">
         {lines.map((line, index) => (
           <div key={index} className="overflow-hidden py-2 px-4">

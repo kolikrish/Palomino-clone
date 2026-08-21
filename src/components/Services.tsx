@@ -81,7 +81,7 @@ const servicesData = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="w-full bg-black text-white py-16 select-none">
+    <section id="services" className="relative z-20 w-full bg-[#03070d] text-white py-16 select-none">
       {/* Top Section Tag */}
       <div className="max-w-[1920px] mx-auto px-6 sm:px-12 md:px-16 lg:px-20 mb-8">
         <div className="flex items-center gap-2 text-xs tracking-[0.25em] font-medium text-white uppercase font-gilroy">

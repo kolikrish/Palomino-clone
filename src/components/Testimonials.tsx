@@ -54,7 +54,7 @@ const Testimonials: React.FC = () => {
   const current = testimonialsData[currentIndex];
 
   return (
-    <section id="testimonials" className="w-full min-h-[85vh] bg-black text-white py-10 flex flex-col justify-between items-center select-none border-b border-t border-white/10">
+    <section id="testimonials" className="relative z-20 w-full min-h-[85vh] bg-[#03070d] text-white py-10 flex flex-col justify-between items-center select-none border-b border-t border-white/10">
       
       {/* Top Header Tag */}
       <div className="flex items-center gap-2 text-xs tracking-[0.25em] font-medium text-white uppercase font-gilroy">

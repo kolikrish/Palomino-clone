@@ -49,18 +49,8 @@ export const PageLoader: React.FC = () => {
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.50 } }}
             className="flex flex-col items-center gap-4 z-20 text-white"
           >
-            <div className="relative w-12 h-12 flex items-center justify-center">
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-12 h-12 text-white animate-pulse"
-              >
-                <path d="M12 2L4.5 20.5H9.5L12 14.2L14.5 20.5H19.5L12 2Z" />
-                <path d="M12 6L9 13.5H15L12 6Z" opacity="0.6" />
-              </svg>
-            </div>
-            <span className="font-gilroy font-extrabold text-2xl sm:text-3xl tracking-[0.3em] uppercase text-white">
-              PALOMINO
+            <span className="font-gilroy font-extrabold text-xl sm:text-2xl text-white">
+              Palomino
             </span>
             <span className="font-mono text-sm tracking-widest text-white/50">
               {count}%

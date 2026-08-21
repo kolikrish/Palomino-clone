@@ -50,10 +50,10 @@ const figures: FigureItem[] = [
 const KeyFigures: React.FC = () => {
   return (
     <>
-    <div className='w-full h-8 flex items-center justify-left p-6 bg-black pt-10'>
+    <div className='relative z-20 w-full h-8 flex items-center justify-left p-6 bg-[#03070d] pt-10'>
         <h3 className='text-white text-2xl font-light capitalize tracking-wide'>Key Figures</h3>
     </div>
-    <section className="w-full min-h-[65vh] lg:h-[60vh] bg-black text-white px-6 sm:px-12 md:px-16 lg:px-4 py-4 flex flex-col justify-center select-none">
+    <section className="relative z-20 w-full min-h-[65vh] lg:h-[60vh] bg-[#03070d] text-white px-6 sm:px-12 md:px-16 lg:px-4 py-4 flex flex-col justify-center select-none">
       <div className="max-w-[1920px] mx-auto w-full h-full flex flex-col justify-between gap-6">
         
         {/* 6 Boxes Grid: 3 in Top, 3 in Bottom */}

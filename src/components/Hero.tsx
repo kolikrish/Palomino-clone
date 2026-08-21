@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen h-[100vh] h-[100dvh] bg-[#03070d] overflow-hidden flex flex-col justify-between select-none"
+      className="sticky top-0 z-10 w-full min-h-screen h-[100vh] h-[100dvh] bg-[#03070d] overflow-hidden flex flex-col justify-between select-none"
     >
       {/* 1. Cinematic Background Layer */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">

@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 const Story: React.FC = () => {
   return (
-    <section id="about" className="w-full bg-black text-white py-24 px-6 sm:px-12 md:px-16 lg:px-20 select-none">
+    <section id="about" className="relative z-20 w-full bg-[#03070d] text-white py-24 px-6 sm:px-12 md:px-16 lg:px-20 select-none">
       <div className="max-w-[1920px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left Column: Label, Story Paragraph, About Link */}

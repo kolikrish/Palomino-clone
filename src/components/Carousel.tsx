@@ -12,7 +12,7 @@ const Carousel: React.FC = () => {
   const marqueeLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <section className="w-full bg-black py-16 relative overflow-hidden select-none">
+    <section className="relative z-20 w-full bg-[#03070d] py-16 overflow-hidden select-none shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
       <div className="max-w-[1920px] mx-auto px-6 mb-10 text-center">
         <span className="text-lg text-white font-gilroy uppercase tracking-wide">
           TRUSTED BY LEADING GLOBAL BRANDS & ATHLETES
