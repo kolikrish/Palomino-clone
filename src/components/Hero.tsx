@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
                 delay: 2.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="text-[14.5vw] sm:text-[13vw] md:text-[11.5vw] lg:text-[10.5vw] xl:text-[9.5rem] 2xl:text-[11rem] tracking-[-0.03em] leading-[0.84] text-white uppercase drop-shadow-2xl font-gilroy"
+              className="text-[14.5vw] sm:text-[13vw] md:text-[11.5vw] lg:text-[10.5vw] xl:text-[9.5rem] 2xl:text-[11rem] tracking-[-0.03em] leading-[0.84] text-white uppercase font-gilroy"
             >
               SPORTS
             </motion.h1>
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
                 delay: 2.3,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="text-[14.5vw] sm:text-[13vw] md:text-[11.5vw] lg:text-[10.5vw] xl:text-[9.5rem] 2xl:text-[11rem] tracking-[-0.03em] leading-[0.84] text-white uppercase drop-shadow-2xl font-gilroy"
+              className="text-[14.5vw] sm:text-[13vw] md:text-[11.5vw] lg:text-[10.5vw] xl:text-[9.5rem] 2xl:text-[11rem] tracking-[-0.03em] leading-[0.84] text-white uppercase font-gilroy"
             >
               INTO
             </motion.h1>
@@ -82,7 +82,7 @@ export const Hero: React.FC = () => {
                 delay: 2.5,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="text-[14.5vw] sm:text-[13vw] md:text-[11.5vw] lg:text-[10.5vw] xl:text-[9.5rem] 2xl:text-[11rem] tracking-[-0.03em] leading-[0.84] text-white uppercase drop-shadow-2xl font-gilroy"
+              className="text-[14.5vw] sm:text-[13vw] md:text-[11.5vw] lg:text-[10.5vw] xl:text-[9.5rem] 2xl:text-[11rem] tracking-[-0.03em] leading-[0.84] text-white uppercase font-gilroy"
             >
               STORIES
             </motion.h1>
