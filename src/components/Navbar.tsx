@@ -14,7 +14,7 @@ export const Navbar: React.FC = () => {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1.0, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/10 backdrop-blur-md"
     >
       <nav className="max-w-[1920px] mx-auto px-6 sm:px-12 md:px-16 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
           <div className="relative w-6 h-6 flex items-center justify-center">
             <svg 
               viewBox="0 0 24 24" 
-              fill="currentColor" 
+              fill="currentColor"
               className="w-6 h-6 text-white"
             >
               <path d="M12 2L4.5 20.5H9.5L12 14.2L14.5 20.5H19.5L12 2Z" />
@@ -50,10 +50,10 @@ export const Navbar: React.FC = () => {
               </a>
             ))}
           </div>
-
-          {/* KPVerse Menu Hover Drawer Component */}
-          <KPVerseMenu />
         </div>
+
+        {/* KPVerse Menu Hover Drawer Component */}
+        <KPVerseMenu />
       </nav>
     </motion.header>
   );

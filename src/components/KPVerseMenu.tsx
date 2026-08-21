@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Menu } from 'lucide-react';
 
@@ -99,7 +100,7 @@ const KPVerseMenuItem: React.FC<MenuItemProps> = ({
         <a
           href={href}
           onClick={onClose}
-          className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase font-gilroy tracking-tight transition-colors duration-200 ${
+          className={`text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-extrabold uppercase font-gilroy tracking-tight transition-colors duration-200 ${
             isActive || isHovered ? 'text-black' : 'text-white'
           }`}
         >
@@ -139,99 +140,103 @@ export const KPVerseMenu: React.FC = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 text-xs font-gilroy font-semibold tracking-[0.25em] text-white hover:text-cyan-400 uppercase transition-colors"
+        className="flex items-center gap-2 text-xs font-gilroy font-semibold tracking-[0.25em] text-white hover:text-cyan-400  transition-colors"
         aria-label="Open navigation menu"
       >
         <Menu className="w-4 h-4" />
         <span>MENU</span>
       </button>
 
-      {/* Slide-In Overlay Drawer */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Dark Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/70 backdrop-blur-md z-[9998]"
-            />
-
-            {/* Menu Container */}
-            <motion.div
-              initial={{ x: '-100%' }}
-              animate={{ x: '0%' }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 bottom-0 left-0 w-full sm:w-[85vw] md:w-[60vw] lg:w-[45vw] bg-[#0a0a0a] text-white z-[9999] p-6 sm:p-10 flex flex-col justify-between border-r border-white/10 shadow-2xl overflow-y-auto"
-            >
-              {/* Header: Title & Close Button */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
-                <span className="text-xs font-mono tracking-[0.3em] text-white/50 uppercase">
-                  DISCOVER • PALOMINO
-                </span>
-                <button
+      {/* Slide-In Overlay Drawer rendered via Portal so parent header backdrop-filter/transforms don't restrict fixed layout */}
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <AnimatePresence>
+            {isOpen && (
+              <>
+                {/* Dark Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   onClick={() => setIsOpen(false)}
-                  className="p-2 text-white/70 hover:text-white transition-colors"
-                  aria-label="Close menu"
+                  className="fixed inset-0 bg-black/70 backdrop-blur-md z-[9998]"
+                />
+
+                {/* Menu Container */}
+                <motion.div
+                  initial={{ x: '-100%' }}
+                  animate={{ x: '0%' }}
+                  exit={{ x: '-100%' }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="fixed top-0 bottom-0 left-0 w-full sm:w-[85vw] md:w-[60vw] lg:w-[45vw] bg-[#0a0a0a] text-white z-[9999] p-6 sm:p-10 flex flex-col justify-between border-r border-white/10 shadow-2xl overflow-y-auto"
                 >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
+                  {/* Header: Title & Close Button */}
+                  <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
+                    <span className="text-xs font-mono tracking-[0.3em] text-white/50 uppercase">
+                      DISCOVER • PALOMINO
+                    </span>
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="p-2 text-white/70 hover:text-white transition-colors"
+                      aria-label="Close menu"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
+                  </div>
 
-              {/* Main Menu Items List */}
-              <div className="flex flex-col space-y-4 my-auto">
-                {menuItems.map((item, index) => (
-                  <KPVerseMenuItem
-                    key={item.label}
-                    label={item.label}
-                    href={item.href}
-                    pageNo={item.pageNo}
-                    onClose={() => setIsOpen(false)}
-                    index={index}
-                  />
-                ))}
-              </div>
+                  {/* Main Menu Items List */}
+                  <div className="flex flex-col space-y-4 my-auto">
+                    {menuItems.map((item, index) => (
+                      <KPVerseMenuItem
+                        key={item.label}
+                        label={item.label}
+                        href={item.href}
+                        pageNo={item.pageNo}
+                        onClose={() => setIsOpen(false)}
+                        index={index}
+                      />
+                    ))}
+                  </div>
 
-              {/* Footer Links & Info */}
-              <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6 mt-8 text-xs font-poppins">
-                <div>
-                  <span className="text-[10px] font-mono text-white/40 uppercase block mb-1">
-                    CONNECT
-                  </span>
-                  <a
-                    href="mailto:contact@palominoprod.com"
-                    className="hover:text-cyan-400 transition-colors block text-white/80"
-                  >
-                    EMAIL
-                  </a>
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-white/40 uppercase block mb-1">
-                    SOCIALS
-                  </span>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-cyan-400 transition-colors block text-white/80"
-                  >
-                    INSTAGRAM
-                  </a>
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-white/40 uppercase block mb-1">
-                    STUDIO
-                  </span>
-                  <span className="text-white/80 font-mono">2026</span>
-                </div>
-              </div>
-            </motion.div>
-          </>
+                  {/* Footer Links & Info */}
+                  <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6 mt-8 text-xs font-poppins">
+                    <div>
+                      <span className="text-[10px] font-mono text-white/40 uppercase block mb-1">
+                        CONNECT
+                      </span>
+                      <a
+                        href="mailto:contact@palominoprod.com"
+                        className="hover:text-cyan-400 transition-colors block text-white/80"
+                      >
+                        EMAIL
+                      </a>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-white/40 uppercase block mb-1">
+                        SOCIALS
+                      </span>
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:text-cyan-400 transition-colors block text-white/80"
+                      >
+                        INSTAGRAM
+                      </a>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-white/40 uppercase block mb-1">
+                        STUDIO
+                      </span>
+                      <span className="text-white/80 font-mono">2026</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 };
