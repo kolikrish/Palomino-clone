@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             <p className="text-[11px] text-slate-500 uppercase tracking-wider font-mono">
               DESIGNED & DEVELOPED BY{' '}
               <a href="#" className="underline font-bold text-black hover:text-cyan-600 transition-colors">
-                METABOLE
+                KRISH
               </a>
             </p>
           </div>
