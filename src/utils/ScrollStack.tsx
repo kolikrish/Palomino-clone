@@ -1,6 +1,8 @@
 import React, { useLayoutEffect, useRef, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export interface ScrollStackItemProps {
   itemClassName?: string;
@@ -219,13 +221,17 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         touchMultiplier: 1.5,
       });
 
-      lenis.on('scroll', handleScroll);
+      lenis.on('scroll', () => {
+        handleScroll();
+        ScrollTrigger.update();
+      });
 
-      const raf = (time: number) => {
-        lenis.raf(time);
-        animationFrameRef.current = requestAnimationFrame(raf);
+      const tickerCb = (time: number) => {
+        lenis.raf(time * 1000);
       };
-      animationFrameRef.current = requestAnimationFrame(raf);
+      gsap.ticker.add(tickerCb);
+      gsap.ticker.lagSmoothing(0);
+
       lenisRef.current = lenis;
     } catch (e) {
       console.warn('Lenis window scroll initialized fallback:', e);
